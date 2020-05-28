@@ -1,28 +1,35 @@
 import React, { Component } from "react";
 import Test from "./Test";
 class App extends Component {
+
   state = {
-    name: "aymen"
+    name: ""
   }
-  handalClick = () => {
+  handlChange = (e) => {
     this.setState({
-      name: "koko"
-    }
-    )
+      name: e.target.value
+    })
   }
-  mouselClick() {
-    console.log("MouseClick")
+
+  handlSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.name);
   }
   render() {
     return (
       <div>
-        <Test />
-        <button type="button" name="" id="" className="btn btn-primary btn-lg btn-block" onClick={this.handalClick}>
-          click
-        </button>
-        <button type="button" name="" id="" className="btn btn-primary btn-lg btn-block" onMouseOver={this.mouselClick}>onMouseOver</button>
-        <p>{this.state.name}</p>
-      </div>
+        <form onSubmit={this.handlSubmit}>
+          <div className="form-group">
+            <select onChange={this.handlChange}>
+              <option value="value 1">value 1</option>
+              <option value="value 2">value 2</option>
+              <option value="value 3">value 3</option>
+            </select>
+          </div>
+          <button>submit</button>
+        </form>
+        {this.state.name}
+      </div >
     );
   }
 }
