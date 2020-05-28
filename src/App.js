@@ -1,27 +1,19 @@
 import React, { Component } from "react";
 import Test from "./Test";
+import Items from "./component/items";
 class App extends Component {
+
   state = {
-    name: "aymen"
-  }
-  handalClick = () => {
-    this.setState({
-      name: "koko"
-    }
-    )
-  }
-  mouselClick() {
-    console.log("MouseClick")
+    items: [
+      { id: 1, name: "aymen", age: "27" },
+      { id: 2, name: "minou", age: "25" },
+      { id: 3, name: "koko", age: "21" }
+    ]
   }
   render() {
     return (
       <div>
-        <Test />
-        <button type="button" name="" id="" className="btn btn-primary btn-lg btn-block" onClick={this.handalClick}>
-          click
-        </button>
-        <button type="button" name="" id="" className="btn btn-primary btn-lg btn-block" onMouseOver={this.mouselClick}>onMouseOver</button>
-        <p>{this.state.name}</p>
+        <Items items={this.state.items} />
       </div>
     );
   }
