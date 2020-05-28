@@ -1,35 +1,20 @@
 import React, { Component } from "react";
 import Test from "./Test";
+import Items from "./component/items";
 class App extends Component {
 
   state = {
-    name: ""
-  }
-  handlChange = (e) => {
-    this.setState({
-      name: e.target.value
-    })
-  }
-
-  handlSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state.name);
+    items: [
+      { id: 1, name: "aymen", age: "27" },
+      { id: 2, name: "minou", age: "25" },
+      { id: 3, name: "koko", age: "21" }
+    ]
   }
   render() {
     return (
       <div>
-        <form onSubmit={this.handlSubmit}>
-          <div className="form-group">
-            <select onChange={this.handlChange}>
-              <option value="value 1">value 1</option>
-              <option value="value 2">value 2</option>
-              <option value="value 3">value 3</option>
-            </select>
-          </div>
-          <button>submit</button>
-        </form>
-        {this.state.name}
-      </div >
+        <Items items={this.state.items} />
+      </div>
     );
   }
 }
