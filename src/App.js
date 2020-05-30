@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import Test from "./Test";
-import Items from "./component/items";
+import { BrowserRouter, Route } from "react-router-dom";
+import Nav from "./component/Nav";
+import Home from "./component/Home";
+import About from "./component/About";
 class App extends Component {
 
-  state = {
-    items: [
-      { id: 1, name: "aymen", age: "27" },
-      { id: 2, name: "minou", age: "25" },
-      { id: 3, name: "koko", age: "21" }
-    ]
-  }
   render() {
     return (
-      <div>
-        <Items items={this.state.items} />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Nav />
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
