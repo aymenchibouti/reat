@@ -9,6 +9,7 @@ const Nav = () => {
                 <ul class="list-group">
                     <NavLink exact to="/">Home</NavLink>
                     <NavLink to="/About">About</NavLink>
+                    <NavLink to="/Blog">Blog</NavLink>
                 </ul>
             </div>
         </div>
