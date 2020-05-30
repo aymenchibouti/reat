@@ -18,9 +18,18 @@ class Blog extends Component {
     }
 
     render() {
+        const { users } = this.state
+        const usersList = users.map(user => {
+            return (
+                <div keys={user.id}>
+                    <div>Name : {user.name}</div>
+                </div>
+            )
+        })
+
         return (
             <div>
-                {this.state.users.map(user => <div kyes={user.id}>{user.name}</div>)}
+                {usersList}
             </div>
         );
     }
